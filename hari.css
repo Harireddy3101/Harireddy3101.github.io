@@ -1,0 +1,332 @@
+/* CSS Variables for themes */
+:root {
+  --primary-color: #768997;
+  --secondary-color: #a8b5c1;
+  --background-color: #f9f9f9;
+  --text-color: #333;
+  --header-bg-color: var(--secondary-color);
+  --card-bg-color: #fff;
+  --section-bg-color: #fff;
+  --border-radius: 8px;
+  --transition-speed: 0.3s;
+}
+
+body.dark-mode {
+  --background-color: #1a1a1a;
+  --text-color: #f0f0f0;
+  --primary-color: #1abc9c;
+  --secondary-color: #34495e;
+  --header-bg-color: #2c3e50;
+  --card-bg-color: #2c3e50;
+  --section-bg-color: #2c3e50;
+}
+
+/* Apply background color to html and body */
+html, body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+body {
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.6;
+}
+
+/* Ensure the content div takes up the full height and inherits background */
+.content {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Update main to inherit background */
+main {
+  flex: 1;
+  padding: 20px;
+}
+
+/* Update section backgrounds */
+section {
+  background-color: var(--section-bg-color);
+  color: var(--text-color);
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease-out;
+}
+
+section:hover {
+  animation: bulgeEffect 0.3s forwards;
+}
+
+/* Ensure text is visible in all sections */
+section h2,
+section p,
+section h3 {
+  color: var(--text-color);
+  transition: color var(--transition-speed);
+}
+
+/* Update the project cards */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.project-card {
+  background-color: var(--card-bg-color);
+  color: var(--text-color);
+  padding: 20px;
+  border-radius: var(--border-radius);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+/* Update header styles */
+header {
+  background-color: var(--header-bg-color);
+  color: var(--text-color);
+  padding: 20px;
+  transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+nav ul {
+  list-style-type: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+}
+
+nav ul li {
+  margin: 0 10px;
+}
+
+nav ul li a {
+  color: var(--text-color);
+  text-decoration: none;
+  transition: color var(--transition-speed);
+}
+
+/* Update form inputs for better visibility in dark mode */
+input, textarea {
+  width: 50%;
+  padding: 10px;
+  margin-bottom: 15px;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  border: 1px solid var(--secondary-color);
+  border-radius: var(--border-radius);
+  transition: background-color var(--transition-speed), color var(--transition-speed), border-color var(--transition-speed);
+}
+
+textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+button[type="submit"] {
+  display: block;
+  width: 100%;
+  background-color: var(--primary-color);
+  color: var(--background-color);
+  border: none;
+  padding: 12px 20px;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background-color var(--transition-speed);
+  font-size: 16px;
+  font-weight: bold;
+}
+
+button[type="submit"]:hover {
+  background-color: var(--secondary-color);
+}
+
+/* Update footer */
+footer {
+  background-color: var(--header-bg-color);
+  color: var(--text-color);
+  padding: 20px;
+  text-align: center;
+  transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+.social-icons a {
+  color: var(--text-color);
+  font-size: 24px;
+  margin: 0 10px;
+  transition: color var(--transition-speed);
+}
+
+/* Theme toggle button */
+#theme-toggle {
+  position: fixed;
+  top: 10px;
+  right: 10px;
+  background-color: var(--primary-color);
+  color: var(--background-color);
+  border: none;
+  padding: 10px 15px;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  z-index: 9999;
+  transition: background-color var(--transition-speed), color var(--transition-speed);
+}
+
+#theme-toggle:hover {
+  background-color: var(--secondary-color);
+}
+
+/* Profile container */
+.profile-container {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.profile-picture {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+/* Intro animation styles */
+.intro-animation {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--primary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+  transition: transform 0.5s ease-in-out;
+}
+
+.intro-text {
+  font-size: 3rem;
+  color: var(--background-color);
+  opacity: 0;
+  transform: scale(0.5);
+  transition: opacity 0.5s, transform 0.5s;
+}
+
+.content {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s, transform 0.5s;
+}
+
+/* Reveal animation */
+@keyframes revealAnimation {
+  0% {
+    transform: scaleX(1);
+  }
+  100% {
+    transform: scaleX(0);
+  }
+}
+
+/* Fade-in animation */
+.fade-in {
+  opacity: 0;
+  animation: fadeIn 0.5s forwards;
+}
+
+@keyframes fadeIn {
+  to { opacity: 1; }
+}
+
+/* Slide-in animation */
+.slide-in {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: slideIn 0.5s forwards;
+}
+
+@keyframes slideIn {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Contact form styles */
+#contact {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#contact form {
+  width: 100%;
+  max-width: 500px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+#contact input,
+#contact textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  background-color: var(--background-color);
+  color: var(--text-color);
+  border: 1px solid var(--secondary-color);
+  border-radius: var(--border-radius);
+  transition: background-color var(--transition-speed), color var(--transition-speed), border-color var(--transition-speed);
+}
+
+#contact textarea {
+  min-height: 100px;
+  resize: vertical;
+}
+
+#contact button[type="submit"] {
+  width: 100%;
+  max-width: 200px;
+  background-color: var(--primary-color);
+  color: var(--background-color);
+  border: none;
+  padding: 12px 20px;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  transition: background-color var(--transition-speed);
+  font-size: 16px;
+  font-weight: bold;
+}
+
+#contact button[type="submit"]:hover {
+  background-color: var(--secondary-color);
+}
+
+/* Replace the previous bulge effect with this new hover effect */
+@keyframes bulgeEffect {
+  0% {
+    transform: scale(1);
+  }
+  100% {
+    transform: scale(1.03);
+  }
+}
+
+section {
+  /* Existing styles... */
+  transition: transform 0.3s ease-out;
+}
+
+section:hover {
+  animation: bulgeEffect 0.3s forwards;
+}
+
+/* Remove the .section-bulge class as it's no longer needed */
