@@ -53,6 +53,21 @@ document.addEventListener('DOMContentLoaded', function () {
     // Log to console for debugging
     console.log('DOMContentLoaded event fired');
     console.log('Theme toggle button:', themeToggle);
+    // Mobile navigation toggle
+    var navToggle = document.querySelector('.nav-toggle');
+    var navMenu = document.querySelector('nav ul');
+    navToggle.addEventListener('click', function () {
+        navMenu.classList.toggle('show');
+    });
+    // Close mobile menu when a link is clicked
+    var navLinks = document.querySelectorAll('nav ul li a');
+    navLinks.forEach(function (link) {
+        link.addEventListener('click', function () {
+            if (window.innerWidth <= 600) {
+                navMenu.classList.remove('show');
+            }
+        });
+    });
 });
 // Log to console for debugging
 console.log('Script loaded');
