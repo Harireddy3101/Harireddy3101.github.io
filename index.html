@@ -16,7 +16,12 @@
   <div class="content">
     <header>
       <nav>
-        <ul>
+        <div class="hamburger-menu">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <ul class="nav-menu">
           <li><a href="#home">Home</a></li>
           <li><a href="#about">About</a></li>
           <li><a href="#projects">Projects</a></li>
@@ -28,7 +33,15 @@
     <main>
       <section id="home">
         <div class="profile-container">
-          <img src="profile_image.jpeg" alt="Hari's Profile Picture" class="profile-picture">
+          <img src="profile_large.jpeg" 
+               srcset="profile_small.jpeg 300w,
+                       profile_medium.jpeg 600w,
+                       profile_large.jpeg 1200w"
+               sizes="(max-width: 600px) 100px,
+                      (max-width: 1200px) 120px,
+                      150px"
+               alt="Hari's Profile Picture" 
+               class="profile-picture">
           <h1>Hari</h1>
           <p>Web Developer & Designer</p>
         </div>

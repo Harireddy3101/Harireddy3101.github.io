@@ -6,6 +6,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const introText = document.querySelector('.intro-text') as HTMLElement;
     const content = document.querySelector('.content') as HTMLElement;
     const themeToggle = document.getElementById('theme-toggle') as HTMLButtonElement;
+    const hamburgerMenu = document.querySelector('.hamburger-menu') as HTMLElement;
+    const navMenu = document.querySelector('.nav-menu') as HTMLElement;
 
     // Theme switcher
     const toggleTheme = () => {
@@ -68,6 +70,19 @@ document.addEventListener('DOMContentLoaded', () => {
     // Log to console for debugging
     console.log('DOMContentLoaded event fired');
     console.log('Theme toggle button:', themeToggle);
+
+    hamburgerMenu.addEventListener('click', () => {
+        navMenu.classList.toggle('active');
+        hamburgerMenu.classList.toggle('active');
+    });
+
+    // Close menu when a nav item is clicked
+    document.querySelectorAll('.nav-menu a').forEach(item => {
+        item.addEventListener('click', () => {
+            navMenu.classList.remove('active');
+            hamburgerMenu.classList.remove('active');
+        });
+    });
 });
 
 // Log to console for debugging

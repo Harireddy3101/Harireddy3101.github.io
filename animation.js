@@ -5,6 +5,8 @@ document.addEventListener('DOMContentLoaded', function () {
     var introText = document.querySelector('.intro-text');
     var content = document.querySelector('.content');
     var themeToggle = document.getElementById('theme-toggle');
+    var hamburgerMenu = document.querySelector('.hamburger-menu');
+    var navMenu = document.querySelector('.nav-menu');
     // Theme switcher
     var toggleTheme = function () {
         document.body.classList.toggle('dark-mode');
@@ -53,6 +55,17 @@ document.addEventListener('DOMContentLoaded', function () {
     // Log to console for debugging
     console.log('DOMContentLoaded event fired');
     console.log('Theme toggle button:', themeToggle);
+    hamburgerMenu.addEventListener('click', function () {
+        navMenu.classList.toggle('active');
+        hamburgerMenu.classList.toggle('active');
+    });
+    // Close menu when a nav item is clicked
+    document.querySelectorAll('.nav-menu a').forEach(function (item) {
+        item.addEventListener('click', function () {
+            navMenu.classList.remove('active');
+            hamburgerMenu.classList.remove('active');
+        });
+    });
 });
 // Log to console for debugging
 console.log('Script loaded');
